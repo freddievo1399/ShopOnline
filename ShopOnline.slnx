@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Base/">
+    <Project Path="ShopOnline.Abstractions/ShopOnline.Abstractions.csproj" />
+    <Project Path="ShopOnline.BaseBlazor/ShopOnline.BaseBlazor.csproj" />
+    <Project Path="ShopOnline.Infrastructure/ShopOnline.Infrastructure.csproj" />
+  </Folder>
+  <Project Path="WebApp/WebApp.Client/WebApp.Client.csproj" />
+  <Project Path="WebApp/WebApp/WebApp.csproj" />
+</Solution>
