@@ -1,8 +1,32 @@
 <Solution>
+  <Folder Name="/Auth/">
+    <Project Path="ShopOnline.Auth.Share/ShopOnline.Auth.Share.csproj" Id="e142ccb9-0a44-41c0-8987-2d8785465512" />
+  </Folder>
   <Folder Name="/Base/">
     <Project Path="ShopOnline.Abstractions/ShopOnline.Abstractions.csproj" />
     <Project Path="ShopOnline.BaseBlazor/ShopOnline.BaseBlazor.csproj" />
     <Project Path="ShopOnline.Infrastructure/ShopOnline.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/Catalog/">
+    <Project Path="ShopOnline.Catalog.Share/ShopOnline.Catalog.Share.csproj" Id="38116a0b-f008-477b-919a-8a889a595a9b" />
+  </Folder>
+  <Folder Name="/ContentManager/">
+    <Project Path="ShopOnline.ContentManager.Share/ShopOnline.ContentManager.Share.csproj" Id="dccd11c0-84b3-4cb6-a7e8-1455179294be" />
+  </Folder>
+  <Folder Name="/FontStore/">
+    <Project Path="ShopOnline.FontStore.Share/ShopOnline.FontStore.Share.csproj" Id="90dfb3a6-b1ce-4e4a-9b8c-e35e7415ed11" />
+  </Folder>
+  <Folder Name="/Inventory/">
+    <Project Path="ShopOnline.Inventory.Share/ShopOnline.Inventory.Share.csproj" Id="35553be9-5141-48a1-b66a-6b713af629e7" />
+  </Folder>
+  <Folder Name="/MasterData/">
+    <Project Path="ShopOnline.MatterData.Share/ShopOnline.MatterData.Share.csproj" Id="025b0a95-e41d-40fc-9233-af0d89c8be9b" />
+  </Folder>
+  <Folder Name="/Ordering/">
+    <Project Path="ShopOnline.Ordering.Share/ShopOnline.Ordering.Share.csproj" Id="c5773892-9b1b-4dac-acef-48c14737ef3a" />
+  </Folder>
+  <Folder Name="/SystemConfig/">
+    <Project Path="ShopOnline.SystemConfig.Share/ShopOnline.SystemConfig.Share.csproj" Id="26b4e036-9162-47c2-bb4d-e3da114aff05" />
   </Folder>
   <Project Path="WebApp/WebApp.Client/WebApp.Client.csproj" />
   <Project Path="WebApp/WebApp/WebApp.csproj" />
