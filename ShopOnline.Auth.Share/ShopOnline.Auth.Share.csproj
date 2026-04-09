@@ -10,4 +10,9 @@
     <ProjectReference Include="..\ShopOnline.Abstractions\ShopOnline.Abstractions.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Dto\Req\" />
+    <Folder Include="Interface\" />
+  </ItemGroup>
+
 </Project>

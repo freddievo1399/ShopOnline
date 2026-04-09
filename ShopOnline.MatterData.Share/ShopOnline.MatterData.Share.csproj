@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ShopOnline.Abstractions\ShopOnline.Abstractions.csproj" />
+    <ProjectReference Include="..\ShopOnline.Auth.Share\ShopOnline.Auth.Share.csproj" />
   </ItemGroup>
 
 </Project>

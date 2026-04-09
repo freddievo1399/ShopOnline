@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using ShopOnline.Auth.Server.Utils;
 using ShopOnline.Infrastructure.Database;
 using ShopOnline.Infrastructure.Utils;
 using WebApp.Client.Components;
@@ -37,6 +38,7 @@ builder.Services.AddScoped(p =>
 
 
 var app = builder.Build();
+PermissionHub.ScanAll();
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();

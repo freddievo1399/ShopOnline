@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/Auth/">
+    <Project Path="ShopOnline.Auth.Server/ShopOnline.Auth.Server.csproj" Id="4e6eb675-044c-486b-b337-c599bac48374" />
     <Project Path="ShopOnline.Auth.Share/ShopOnline.Auth.Share.csproj" Id="e142ccb9-0a44-41c0-8987-2d8785465512" />
   </Folder>
   <Folder Name="/Base/">
@@ -20,6 +21,7 @@
     <Project Path="ShopOnline.Inventory.Share/ShopOnline.Inventory.Share.csproj" Id="35553be9-5141-48a1-b66a-6b713af629e7" />
   </Folder>
   <Folder Name="/MasterData/">
+    <Project Path="ShopOnline.MatterData.Blazor/ShopOnline.MatterData.Blazor.csproj" Id="33817bbf-7ad3-4d8d-b7c2-c054bc40ca33" />
     <Project Path="ShopOnline.MatterData.Share/ShopOnline.MatterData.Share.csproj" Id="025b0a95-e41d-40fc-9233-af0d89c8be9b" />
   </Folder>
   <Folder Name="/Ordering/">

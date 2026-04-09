@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\ShopOnline.Auth.Server\ShopOnline.Auth.Server.csproj" />
     <ProjectReference Include="..\..\ShopOnline.Infrastructure\ShopOnline.Infrastructure.csproj" />
     <ProjectReference Include="..\WebApp.Client\WebApp.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.25" />
