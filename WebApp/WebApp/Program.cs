@@ -1,10 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using ShopOnline.Auth.Server.Utils;
 using ShopOnline.Infrastructure.Database;
 using ShopOnline.Infrastructure.Utils;
-using WebApp.Client.Components;
 using WebApp.Component;
+using WebApp.Internal;
 
 var builder = WebApplication.CreateBuilder(args);
 var ConnectionStrings__SqlServerConnection = builder.Configuration.GetConnectionString("SqlServerConnection");
@@ -38,12 +37,7 @@ builder.Services.AddScoped(p =>
 
 
 var app = builder.Build();
-PermissionHub.ScanAll();
-using (var scope = app.Services.CreateScope())
-{
-    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    await dbContext.Database.MigrateAsync();
-}
+await AppBootstrap.RunAsync(app.Services);
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -61,7 +55,7 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(typeof(WebApp.Client._Imports).Assembly);
+    .AddAdditionalAssemblies(AssembliesUtil.GetAssembliesBlazor().ToArray());
 
 app.UseStatusCodePagesWithRedirects("/NotFound");
 app.Run();

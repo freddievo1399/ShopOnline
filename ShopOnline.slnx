@@ -15,6 +15,7 @@
     <Project Path="ShopOnline.ContentManager.Share/ShopOnline.ContentManager.Share.csproj" Id="dccd11c0-84b3-4cb6-a7e8-1455179294be" />
   </Folder>
   <Folder Name="/FontStore/">
+    <Project Path="ShopOnline.FontStore.Blazor/ShopOnline.FontStore.Blazor.csproj" Id="e6fe3097-36b1-4633-b4fa-cb2fbb1f5a4a" />
     <Project Path="ShopOnline.FontStore.Share/ShopOnline.FontStore.Share.csproj" Id="90dfb3a6-b1ce-4e4a-9b8c-e35e7415ed11" />
   </Folder>
   <Folder Name="/Inventory/">

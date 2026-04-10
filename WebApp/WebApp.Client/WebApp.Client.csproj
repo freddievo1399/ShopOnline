@@ -15,7 +15,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\ShopOnline.BaseBlazor\ShopOnline.BaseBlazor.csproj" />
+    <ProjectReference Include="..\..\ShopOnline.FontStore.Blazor\ShopOnline.FontStore.Blazor.csproj" />
     <ProjectReference Include="..\..\ShopOnline.MatterData.Blazor\ShopOnline.MatterData.Blazor.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Pages\" />
   </ItemGroup>
 
 </Project>

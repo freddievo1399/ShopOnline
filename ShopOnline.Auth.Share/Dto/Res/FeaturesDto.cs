@@ -8,6 +8,7 @@ namespace ShopOnline.Auth.Share.Dto.Res;
 
 public class FeaturesDto
 {
+    public string Key { get; set; }
     public string Name { get; set; }
     public string Group { get; set; }
     public List<PermistionDto> Permistions { get; set; } = new List<PermistionDto>();
