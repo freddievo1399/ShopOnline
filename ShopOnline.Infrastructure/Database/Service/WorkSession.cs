@@ -8,13 +8,14 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ShopOnline.Infrastructure.Database.Service;
 
-public class WorkSession : QuerySession
+public class WorkSession : QuerySession, IDisposable
 {
     private IDbContextTransaction _transaction;
     private IEnumerable<string> _lockKeys;
@@ -30,9 +31,9 @@ public class WorkSession : QuerySession
         _transaction ??= _context.Database.BeginTransaction();
     }
 
-    public T Add<T>(T entity) where T : EntityBase
+    public async Task<T> AddAsync<T>(T entity) where T : EntityBase
     {
-        var tempEntity = FindByID<T>(entity.Id);
+        var tempEntity = await FindByIdAsync<T>(entity.Id);
         if (tempEntity != null)
         {
             throw new InvalidOperationException($"Entity with ID {entity.Id} already exists.");
@@ -49,12 +50,21 @@ public class WorkSession : QuerySession
         entity.DeletedAt = DateTime.UtcNow;
     }
 
-    public void RemoveById<T>(Guid Id) where T : EntityBase
+    public async Task RemoveById<T>(Guid Id) where T : EntityBase
     {
-        var entity = FindByID<T>(Id);
+        var entity = await FindByIdAsync<T>(Id);
         if (entity == null)
         {
             throw new InvalidOperationException($"Entity with ID {Id} does not exist.");
+        }
+        Remove(entity);
+    }
+    public async Task RemoveAsync<T>(Expression<Func<T, bool>> pridicate) where T : EntityBase
+    {
+        var entity = await FirstOrDefaultAsync<T>(pridicate);
+        if (entity == null)
+        {
+            throw new InvalidOperationException($"Entity does not exist.");
         }
         Remove(entity);
     }
@@ -79,7 +89,7 @@ public class WorkSession : QuerySession
         _isCommitted = true;
     }
 
-    public override async ValueTask DisposeAsync()
+    public async void Dispose()
     {
         try
         {
@@ -94,7 +104,7 @@ public class WorkSession : QuerySession
             // Luôn giải phóng tài nguyên
             DataSessionProvider.ReleaseLocks(_lockKeys);
             if (_transaction != null) await _transaction.DisposeAsync();
-            await base.DisposeAsync();
+            base.Dispose();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShopOnline.Auth.Share.Dto.Res;
 
-public class PermistionDto
+public class PermistionRes
 {
     public required string Name { get; set; } = "";
     public required int Value { get; set; }

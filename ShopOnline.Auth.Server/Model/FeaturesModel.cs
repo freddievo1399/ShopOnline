@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace ShopOnline.Auth.Server.Model;
 
-public class FeaturesModel : FeaturesDto
+public class FeaturesModel : FeaturesRes
 {
     public new List<PermistionModel> Permistions { get; set; }
 
-    public FeaturesModel(FeaturesDto featuresDto)
+    public FeaturesModel(FeaturesRes featuresDto)
     {
         this.Name = featuresDto.Name;
         this.Group = featuresDto.Group;

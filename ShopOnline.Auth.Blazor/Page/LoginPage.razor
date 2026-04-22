@@ -1,0 +1,64 @@
+﻿@page "/Auth/login/{urlNavigate}"
+@page "/Auth/login/"
+@using Microsoft.AspNetCore.Components.Forms
+@using RestEase
+@using ShopOnline.Abstractions.Wrappers
+@using ShopOnline.Auth.Share.Dto.Res
+@using ShopOnline.BaseBlazor.Layouts.EmptyLayout
+@using Syncfusion.Blazor.Buttons
+@using System.Text.Json
+@using System.Text
+@rendermode RenderMode.InteractiveWebAssembly
+@layout EmptyBaseLayout
+@inject HttpClient httpClient
+@inject NavigationManager NavigationManager
+
+<EditForm Model="@LoginRequest" OnValidSubmit="AddBrand">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <InputText id="email" class="form-control" @bind-Value="LoginRequest.UserName" />
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <InputText id="password" type="password" class="form-control" @bind-Value="LoginRequest.Password" />
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">@Mess</label>
+    </div>
+    <SfButton Type="Submit">Login</SfButton>
+</EditForm>
+@code {
+    [Parameter]
+    public string? UrlNavigate { get; set; }
+    public LoginReq LoginRequest { get; set; } = new LoginReq();
+    string Mess = "";
+    private async Task AddBrand()
+    {
+        var api = RestClient.For<Action>(httpClient);
+        var result = await api.LoginAsync(LoginRequest);
+        if (result != null && result.Success)
+        {
+            if (UrlNavigate != null)
+            {
+                string encodedUrl = Uri.UnescapeDataString(UrlNavigate);
+                NavigationManager.NavigateTo($"{encodedUrl}", true);
+            }
+            else
+            {
+            }
+        }
+        else
+        {
+            Mess = result.Message;
+            StateHasChanged();
+        }
+    }
+    [BasePath("api/Auth/Auth/")]
+    public interface Action
+    {
+        [Post("Login")]
+        Task<ResultOf<AuthRes>> LoginAsync([Body] LoginReq login);
+    }
+}

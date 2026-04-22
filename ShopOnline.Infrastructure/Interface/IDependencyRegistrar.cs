@@ -10,7 +10,5 @@ namespace ShopOnline.Infrastructure.Interface;
 
 public interface IDependencyRegistrar
 {
-    public void RegisterDI(IServiceCollection services)
-    {
-    }
+    public void RegisterDI(IServiceCollection services);
 }

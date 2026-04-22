@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ShopOnline.BaseBlazor\ShopOnline.BaseBlazor.csproj" />
     <ProjectReference Include="..\ShopOnline.MatterData.Share\ShopOnline.MatterData.Share.csproj" />
   </ItemGroup>
 

@@ -1,6 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using ShopOnline.Auth.Server.Utils;
+using ShopOnline.Auth.Share.Interface;
 using ShopOnline.Infrastructure.Database;
+using ShopOnline.Infrastructure.Identity;
 
 namespace WebApp.Internal;
 
@@ -21,7 +24,8 @@ public static class AppBootstrap
 
         // 2. Quét & Load Phân quyền (Hàm static của ông ở module Auth)
         Console.WriteLine("[Bootstrap] Scanning System Permissions...");
-        PermissionHub.ScanAll();
+        var authService = provider.GetRequiredService<IAuth>();
+        await authService.SeedingUser();
         // 3. Seed User/Data nếu chưa có
         //Console.WriteLine("[Bootstrap] Seeding Default Data...");
         //await SeedInitialData.EnsureCreated(provider, perms);

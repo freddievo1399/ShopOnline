@@ -12,7 +12,8 @@ namespace ShopOnline.Infrastructure.Entity;
 public class EntityBase
 {
     [Key]
-    public required Guid Id { get; set; }
+    [Required]
+    public required Guid Id { get; set; }=Guid.NewGuid();
 
     [Required]
     [MaxLength(100)]

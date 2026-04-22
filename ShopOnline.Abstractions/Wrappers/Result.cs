@@ -41,6 +41,6 @@ public class Result
 
     public static implicit operator Result((bool, string) result)
     {
-        return result;
+        return new Result { Success = result.Item1, Message = result.Item2 };
     }
 }

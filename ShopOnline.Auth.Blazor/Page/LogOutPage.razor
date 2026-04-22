@@ -1,0 +1,33 @@
+﻿@page "/Auth/LogOut/"
+@using ShopOnline.Abstractions.Wrappers
+@using ShopOnline.Auth.Share.Dto.Req
+@using ShopOnline.BaseBlazor.Layouts.EmptyLayout
+@using Syncfusion.Blazor.Buttons
+@rendermode RenderMode.InteractiveServer
+@layout EmptyBaseLayout
+@inject IAuth AuthService
+@if (ResultLogout.Success)
+{
+    <h3>Logout thành công</h3>
+}
+else
+{
+    <h3>Đang log out</h3>
+    if (ResultLogout.Message != "")
+    {
+        <h3>@ResultLogout.Message</h3>
+    }
+}
+
+@code {
+    [Parameter]
+    public string? Url { get; set; }
+    public LoginReq LoginRequest { get; set; } = new LoginReq();
+    Result ResultLogout = new();
+    protected override async Task OnInitializedAsync()
+    {
+        ResultLogout = await AuthService.DisableThisSession();
+
+        await base.OnInitializedAsync();
+    }
+}

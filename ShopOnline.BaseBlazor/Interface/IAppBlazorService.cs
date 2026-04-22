@@ -10,14 +10,14 @@ namespace ShopOnline.BaseBlazor.Interface
 {
     public interface IAppBlazorService<T>
     {
-        public Task<Result> Excute(Func<T, Task<Result>> func);
+        public Task<Result> ExcuteAsync(Func<T, Task<Result>> func);
 
-        Task<ResultOf<V>> Excute<V>(Func<T, Task<ResultOf<V>>> func);
+        Task<ResultOf<V>> ExcuteAsync<V>(Func<T, Task<ResultOf<V>>> func);
 
-        public Task<ResultsOf<V>> Excute<V>(Func<T, Task<ResultsOf<V>>> func);
+        public Task<ResultsOf<V>> ExcuteAsync<V>(Func<T, Task<ResultsOf<V>>> func);
 
-        public Task<PagedResultsOf<V>> Excute<V>(Func<T, Task<PagedResultsOf<V>>> func);
+        public Task<PagedResultsOf<V>> ExcuteAsync<V>(Func<T, Task<PagedResultsOf<V>>> func);
 
-        public Task<ClaimsPrincipal> GetUser();
+        //public Task<ClaimsPrincipal> GetUser();
     }
 }

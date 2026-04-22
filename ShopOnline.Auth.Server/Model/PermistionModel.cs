@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShopOnline.Auth.Server.Model;
 
-public class PermistionModel: PermistionDto
+public class PermistionModel: PermistionRes
 {
 }
 

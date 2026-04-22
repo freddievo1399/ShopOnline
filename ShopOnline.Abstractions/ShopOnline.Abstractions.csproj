@@ -8,11 +8,13 @@
 
   <ItemGroup>
     <Folder Include="Interface\" />
-    <Folder Include="License\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="14.1.0" />
+    <PackageReference Include="RestEase" Version="1.6.4" />
+    <PackageReference Include="Syncfusion.Blazor.Data" Version="32.1.25" />
+    <PackageReference Include="Syncfusion.Licensing" Version="32.1.25" />
   </ItemGroup>
 
 </Project>

@@ -1,9 +1,12 @@
 ﻿@page "/"
+@using Microsoft.AspNetCore.Components.Routing
 @inherits ShopOnline.BaseBlazor.Layouts.StoreLayout.StoreBaseUI
 <PageTitle>Home</PageTitle>
 
 
 
 <h1>Layout home</h1>
-
-Welcome to your new app.
+<NavLink class="nav-link" href="/matterdata/brand-manager" Match="NavLinkMatch.All">
+    <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+</NavLink>
+Welcome to your new app. 

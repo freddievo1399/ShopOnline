@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ShopOnline.Abstractions.Constants;
+using ShopOnline.Abstractions.Wrappers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -13,11 +15,11 @@ namespace ShopOnline.Auth.Share.Utils
         {
             return principal.Identity?.Name;
         }
-        public static bool HasPermission(this ClaimsPrincipal user, params Enum[] permissions)
+        public static Result CheckPermission(this ClaimsPrincipal user, params Enum[] permissions)
         {
             // Check input
             if (user == null || permissions == null || permissions.Length == 0)
-                return false;
+                return ResultCode.Unauthenticated;
 
             if (user.Identity?.Name == null)
             {
@@ -40,7 +42,7 @@ namespace ShopOnline.Auth.Share.Utils
             if (claims.Count == 0)
             {
                 // lkiem63 tra phân quyền có được khai báo 
-            return false;
+                return false;
             }
             if (claims.Count > 1)
                 throw new Exception("Lỗi cấu hình dư claim");
@@ -66,7 +68,7 @@ namespace ShopOnline.Auth.Share.Utils
 
             // Kiểm tra xem user có đủ tất cả quyền không
             var result = HasPermisson(totalPermission, requiredPermissionMask);
-            return result;
+            return result ? true : ResultCode.Unauthenticated;
         }
         public static int GetValuePermistion(Enum permissionEnum)
         {
@@ -79,6 +81,14 @@ namespace ShopOnline.Auth.Share.Utils
         public static int MergerPermisson(params Enum[] permissionEnums)
         {
             return permissionEnums.Aggregate(0, (current, next) => current | GetValuePermistion(next));
+        }
+        public static int MergerPermisson(params int[] permissionEnums)
+        {
+            return permissionEnums.Aggregate(0, (current, next) => current | next);
+        }
+        public static int MergerPermisson(params string[] permissionEnums)
+        {
+            return MergerPermisson(permissionEnums.Select(int.Parse).ToArray());
         }
     }
 }

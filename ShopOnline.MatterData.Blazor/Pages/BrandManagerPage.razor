@@ -1,0 +1,24 @@
+﻿@page "/matterdata/brand-manager"
+@inherits ManagerBaseUI
+@using Microsoft.AspNetCore.Components.Routing
+@using Syncfusion.Blazor.Inputs
+@inject IAppBlazorService<IBrandManager> AppService
+@* <SfTextBox Placeholder="Brand Name" @bind-Value="text"></SfTextBox> *@
+<SfButton OnClick="AddBrand">Add Brand</SfButton>
+<NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+    <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+</NavLink>
+
+@* <SfCheckBox Disabled="false" @bind-Checked="testChecked"></SfCheckBox> *@
+@code {
+    public string text { get; set; }
+    public bool testChecked { get; set; } = true;
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+    }
+    private async Task AddBrand(MouseEventArgs args)
+    {
+        await AppService.ExcuteAsync(x => x.Remove(Guid.NewGuid()));
+    }
+}

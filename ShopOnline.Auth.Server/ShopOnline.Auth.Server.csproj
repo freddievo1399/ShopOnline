@@ -11,8 +11,4 @@
     <ProjectReference Include="..\ShopOnline.Infrastructure\ShopOnline.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Service\" />
-  </ItemGroup>
-
 </Project>
