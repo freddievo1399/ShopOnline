@@ -1,0 +1,68 @@
+﻿.site-footer {
+    background-color: var(--color-bg-active); /* Slate đậm */
+    color: var(--color-text-muted, #94a3b8);
+    padding: 3rem 0 1.5rem 0;
+    margin-top: 5rem;
+    font-family: var(--font-main);
+    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Viền cực mảnh để tách biệt */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2.5rem;
+    padding: 0 1.5rem;
+}
+
+.footer-logo {
+    color: var(--color-text-active);
+    font-weight: var(--font-weight-bold);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+}
+
+.footer-column p {
+    font-size: 0.8rem; /* Nhỏ lại cho sang */
+    line-height: 1.6;
+}
+
+.footer-column h4 {
+    color: var(--color-text-active);
+    margin-bottom: 1.2rem;
+    font-size: 0.85rem; /* Size tiêu đề cột nhỏ lại */
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+    .footer-column ul li {
+        margin-bottom: 0.5rem;
+    }
+
+        .footer-column ul li a {
+            color: var(--color-text-muted, #94a3b8);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: 0.8rem; /* Size link nhỏ lại */
+        }
+
+            .footer-column ul li a:hover {
+                color: var(--color-text-active); /* Hover thì sáng lên */
+                padding-left: 4px; /* Hiệu ứng nhích nhẹ */
+            }
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.75rem; /* Dòng bản quyền nhỏ nhất */
+    color: #64748b;
+}

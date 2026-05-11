@@ -1,4 +1,47 @@
-﻿<h3>Header</h3>
+﻿@attribute [StreamRendering]
+@rendermode InteractiveAuto
+<header class="headernav">
+
+    <div class="nav-scrollable">
+        <input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+        <nav class="navlist" onclick="document.querySelector('.navbar-toggler').click()">
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                    <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="counter" Match="NavLinkMatch.All">
+                    <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="counter" Match="NavLinkMatch.All">
+                    <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="product/weather">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
+                </NavLink>
+            </div>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="product/testzxc">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> product/testzxc
+                </NavLink>
+            </div>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="product/testzxzxczxcc">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> product/testzxczxczxc
+                </NavLink>
+            </div>
+        </nav>
+    </div>
+</header>
 
 @code {
 
